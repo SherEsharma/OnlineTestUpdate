@@ -11,6 +11,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 public class AppInitializer implements WebApplicationInitializer {
 
 	public void onStartup(ServletContext servletContext) throws ServletException {
+		System.out.println("First");
 
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
         ctx.register(AppConfiguration.class);
