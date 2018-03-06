@@ -59,7 +59,7 @@
 							</div>
 							
 							<div class="card-content">
-								<div class="row">
+								<!-- <div class="row">
 								    <div class="alert alert-success">
 									  <div class="alert-icon">
 										<i class="material-icons">check</i>
@@ -71,7 +71,7 @@
 									  </button>
 								      <p>Successfully Registered !!</p>
 								    </div>
-								</div>
+								</div> -->
 								<div class="row">
 									<div class="col-md-6 col-sm-6 col-xs-12">		
 										<div class="input-group">
