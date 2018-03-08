@@ -19,6 +19,7 @@ import javax.persistence.Table;
 @Table(name = "question_categories", catalog = "xenture_online_test")
 public class Categories implements java.io.Serializable {
 
+	
 	private Integer questionCategoriesId;
 	private String categoriesName;
 	private int categoriesType;
@@ -76,6 +77,12 @@ public class Categories implements java.io.Serializable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "questionCategories")
 	public Set<Registration> getRegistrations() {
 		return this.registrations;
+	}
+
+	@Override
+	public String toString() {
+		return "Categories [questionCategoriesId=" + questionCategoriesId + ", categoriesName=" + categoriesName
+				+ ", categoriesType=" + categoriesType + "]";
 	}
 
 	public void setRegistrations(Set<Registration> registrations) {

@@ -1,3 +1,7 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -222,10 +226,12 @@
 											<div class="form-group is-empty">
 												<select class="form-control" data-validation="required">
 													<option disabled selected>Select Category</option>
-													<option>IT</option>
-													<option>Marketing</option>
-													<option>Sales</option>
-													<option>Account</option>
+													
+													<c:forEach items="${categorylist}" var="categorylist">
+							      				<option value="${categorylist.questionCategoriesId}">${categorylist.categoriesName}</option>
+							      	
+							      					</c:forEach>
+													
 												</select>
 												<span class="material-input"></span>
 											</div>
