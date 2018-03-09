@@ -1,7 +1,12 @@
+<!--  file include for JSTL  -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ page isELIgnored="false"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<!-- End file include for JSTL  -->
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,7 +62,7 @@
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<div class="card card-signup">
-						<form class="form" method="" action="" id="register">
+						<form:form  class="form" method="post" action="registationprocss" modelAttribute="candidate" id="register">
 							<div class="header header-primary header-primary-custom text-center">
 								<h4 class="card-title">Let's start to being part of Xenture !</h4>
 							</div>
@@ -83,7 +88,7 @@
 												<i class="material-icons">person</i>
 											</span>
 											<div class="form-group is-empty">
-												<input type="text" class="form-control" placeholder="Enter Your Full Name" data-validation="required">
+												<form:input  path="candidateFullName"   type="text" class="form-control" placeholder="Enter Your Full Name" data-validation="required"/>
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -94,7 +99,7 @@
 												<i class="material-icons">phone</i>
 											</span>
 											<div class="form-group is-empty">
-												<input type="tel" class="form-control" placeholder="Enter Contact Number" pattern="[789][0-9]{9}" required="required" data-validation="number">
+												<form:input path="candidateContactNo" type="tel" class="form-control" placeholder="Enter Contact Number" pattern="[789][0-9]{9}" required="required" data-validation="number"/>
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -108,7 +113,7 @@
 										<i class="material-icons">email</i>
 									</span>
 									<div class="form-group is-empty">
-										<input type="email" class="form-control" placeholder="Enter Your Email Id" required="required" data-validation="email">
+										<form:input path="candidateEmail" type="email" class="form-control" placeholder="Enter Your Email Id" required="required" data-validation="email"/>
 										<span class="material-input"></span>
 									</div>
 										</div>
@@ -120,26 +125,26 @@
 												<i class="material-icons">lock_outline</i>
 											</span>
 											<div class="form-group is-empty">
-												<input name="pass" type="password" placeholder="Enter Password" class="form-control" required="required" data-validation="strength" data-validation-strength="6">
+												<form:input path="candidatePassword" name="pass" type="password" placeholder="Enter Password" class="form-control" required="required" data-validation="strength" data-validation-strength="6"/>
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 								</div>
 
-								<div class="row">
+							<div class="row">
 									<div class="col-md-6 col-sm-6 col-xs-12">
 										<div class="input-group">
 											<span class="input-group-addon">
 												<i class="material-icons">school</i>
 											</span>
 											<div class="form-group is-empty">
-												<select class="form-control" id="fre-exp" data-validation="required">
-													<option disabled selected>Fresher / Experience</option>
-													<option value="fresher">Fresher</option>
-													<option value="1">1 years</option>
-													<option value="2">2 years</option>
-												</select>
+												<form:select  path="candidateFresherExp" class="form-control" id="fre-exp" data-validation="required">
+													<option disabled selected label="Fresher / Experience"></option>
+													<form:option value="fresher" label="Fresher"/>
+													<form:option value="1" label="1 years"/>
+													<form:option value="2" label="2 years"/>
+												</form:select>
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -150,11 +155,11 @@
 												<i class="material-icons">account_balance</i>
 											</span>
 											<div class="form-group is-empty">
-												<select class="form-control" data-validation="required">
-													<option disabled selected>Select Campus</option>
-													<option>On-campus</option>
-													<option>Off-campus</option>
-												</select>
+												<form:select path="candidateOffcampusOncampus" class="form-control" data-validation="required">
+													<option disabled selected label="">Select Campus</option>
+													<form:option value="On-campus" label="On-campus"/>
+													<form:option value="Off-campus" label="Off-campus" />
+												</form:select>
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -259,7 +264,7 @@
 							<div class="card-action text-center gray">
 				              	<a href="login.html" class="red">Login Here</a>
 				            </div>
-						</form>
+						</form:form>
 					</div>
 				</div>
 			</div>
